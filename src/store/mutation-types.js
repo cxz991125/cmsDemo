@@ -1,0 +1,4 @@
+
+export const SET_ADDCOUNT = 'SET_ADDCOUNT'
+
+export const SET_DELETECOUNT = 'SET_DELETECOUNT'
