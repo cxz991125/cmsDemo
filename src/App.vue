@@ -1,6 +1,6 @@
 <template>
     <div class="test">
-        <h1 >CMS-DEMO</h1>
+        <h1  >CMS-DEMO</h1>
         <h3>{{count}}</h3>
         <button type="button" class="btn btn-primary" @click="delelteCount">减一</button>
         <button type="button" class="btn btn-primary" @click="add">加一</button>
