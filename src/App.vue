@@ -25,7 +25,8 @@ export default {
 }
 </script>
 
-<style>
+
+<style lang="scss">
     html,body{
         width:100%;
         height:100%;
@@ -42,20 +43,18 @@ export default {
         left:50%;
         transform: translate(-50%,-50%);
         -webkit-transform: translate(-50%,-50%);
-    }
-    h1,p,h3{
+        h1,p,h3{
         width:100%;
-    }
-    h1{
-        font-size:70px;
-    }
-    h3{
-        font-size:50px;
-    }
-    button{
-        margin-top:20px;
-        margin-right:20px;
+        }
+        h1{
+            font-size:70px;
+        }
+        h3{
+            font-size:50px;
+        }
+        button{
+            margin-top:20px;
+            margin-right:20px;
+        }
     }
 </style>
-
-
