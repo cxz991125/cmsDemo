@@ -58,3 +58,9 @@ export default {
         }
     }
 </style>
+
+<style lang="stylus">
+    @import url(./assets/css/reset.css)
+</style>
+
+
