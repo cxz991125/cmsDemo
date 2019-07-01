@@ -2,8 +2,8 @@
     <div class="test">
         <h1  >CMS-DEMO</h1>
         <h3>{{count}}</h3>
-        <button type="button" class="btn btn-primary" @click="delelteCount">减一</button>
-        <button type="button" class="btn btn-primary" @click="add">加一</button>
+        <button type="button" class="btn btn-primary" @click="deleteCount">减一</button>
+        <button type="button" class="btn btn-primary" @click="addCount">加一</button>
     </div>
 </template>
 
@@ -12,10 +12,10 @@ import {mapGetters,mapActions} from 'vuex'
 
 export default {
     methods:{
-        ...mapActions({
-            add:'SET_ADDCOUNT',
-            delelteCount:'SET_DELETECOUNT'
-        })
+        ...mapActions([
+           'addCount',
+           'deleteCount'
+        ])
     },
     computed:{
         ...mapGetters([

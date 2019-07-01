@@ -1,13 +1,10 @@
-import {
-    SET_ADDCOUNT,
-    SET_DELETECOUNT
-} from './mutation-types'
+import * as types from './mutation-types'
 
 export default {
-    SET_ADDCOUNT({commit,state}){
-        commit(SET_ADDCOUNT)
+    addCount({commit,state}){
+        commit(types.SET_ADDCOUNT)
     },
-    SET_DELETECOUNT({commit,state}){
-        commit(SET_DELETECOUNT)
+    deleteCount({commit,state}){
+        commit(types.SET_DELETECOUNT)
     }
 }
