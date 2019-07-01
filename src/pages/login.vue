@@ -19,7 +19,7 @@ export default {
 }
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
     .title
         margin 50px 0
         font-size 42px
