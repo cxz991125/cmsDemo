@@ -56,6 +56,14 @@ module.exports = {
                     "sass-loader"
                 ]
             
+            },
+            {
+                test:/\.styl/,
+                use:[
+                    "style-loader",
+                    "css-loader",
+                    "stylus-loader"
+                ]
             }
         ]
     },
@@ -63,7 +71,7 @@ module.exports = {
     devServer:{
         contentBase:'../dist',
         compress: true,
-        port: 8080,
+        port: 9090,
         clientLogLevel:'none',
         hot:true
     },
