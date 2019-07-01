@@ -1,0 +1,39 @@
+spring:
+  datasource:
+    name: cms
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      filter: stat
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/cms?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=UTC
+      username: root
+      password: "042016"
+      #配置初始化大小/最小/最大,fixme:当设置大于0时就会报错
+      initial-size: 2
+      min-idle: 1
+      max-active: 20
+      #获取连接等待超时时间
+      max-wait: 60000
+      #间隔多久进行一次检测，检测需要关闭的空闲连接
+      time-between-eviction-runs-millis: 60000
+      #一个连接在池中最小生存的时间
+      min-evictable-idle-time-millis: 300000
+## MyBatis的相关配置
+##http://www.mybatis.org/spring-boot-starter/mybatis-spring-boot-autoconfigure/
+mybatis:
+  # 映射文件位置
+  mapper-locations: classpath*:/mapper/**/*.xml
+  # 别名扫描包
+  type-aliases-package: com.glutton.cms.dao
+  # 输出SQL执行语句
+  configuration:
+    #数据库字段和实体类字段使用驼峰式映射
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+## pagehelper分页相关配置
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+  returnPageInfo: check
