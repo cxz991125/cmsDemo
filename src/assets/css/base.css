@@ -1,0 +1,9 @@
+body{
+    background:rgba(241, 239, 239, 0.8);
+    font-family: "Roboto", sans-serif;
+}
+
+input{
+    border:0;
+    outline: none;
+}
