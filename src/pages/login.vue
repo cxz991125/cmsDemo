@@ -2,17 +2,34 @@
     <div class="login-container">
         <h1 class="title">cms-demo</h1>
         <div class="from">
-            <input type="text" placeholder="请输入您的账号">
-            <input type="password" placeholder="请输入您的密码">
-            <input type="button" value="登录" class="btn" @click="submit">
+            <el-input 
+            v-model="userName" 
+            prefix-icon="el-icon-user"
+            placeholder="请输入您的用户名"></el-input>
+            <el-input v-model="password" 
+            prefix-icon="el-icon-edit"
+            placeholder="请输入您的密码" show-password></el-input>
+            <el-button type="primary" @click="submit">登录</el-button>
         </div>
     </div>
 </template>
 
 <script>
 export default {
+    data(){
+        return{
+            userName:'',
+            password:'',
+            medium:'medium'
+        }
+    },
     methods:{
         submit(){
+            this.$message({
+                message: '登录成功~',
+                type: 'success'
+            })
+
             this.$router.push('./home')
         }
     }
@@ -39,24 +56,10 @@ export default {
             border-top-right-radius: 3px
             border-bottom-left-radius: 3px
             border-bottom-right-radius: 3px
-            .btn
-                margin-top 30px
-                background:linear-gradient(-90deg,rgba(26,214,253,1),rgba(29,98,240,1));
-                color white
-                cursor:pointer
-                letter-spacing 10px
-                text-indent 10px
-                &:hover
-                    opacity .7
-            input 
-                width 90%
-                background #f2f2f2
-                font-size 12px
-                height 45px
-                padding 0 10px
-                box-sizing border-box
-                &:nth-child(2)
-                    margin-top 30px
+            .el-input
+                margin-bottom 25px
+            .el-button
+                width 100%
            
 
 
