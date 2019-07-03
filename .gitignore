@@ -1,2 +1,4 @@
 /node_modules/
 *.zip
+app-end/spring-boot-cms/target
+.idea
