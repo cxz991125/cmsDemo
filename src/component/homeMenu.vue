@@ -1,9 +1,7 @@
 <template>
-    <ul class="menu-container" 
-        @mousemove="changeMove">
+    <ul class="menu-container" @mousemove="changeMove">
        <li class="menu-title"><span>cms-demo</span></li>
-       <li class="menu-item" 
-        :key="index" 
+       <li class="menu-item" :key="index" 
         v-for="(item,index) in menuData" 
         :class="{menuActive:index === menuIndex}">
            <a href="#" class="levelOneMenu" @click="handleClickMenu(index,$event)">
