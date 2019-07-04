@@ -4,9 +4,10 @@
             <home-menu></home-menu>
         </el-aside>
         <el-container>
-            <el-header>Header</el-header>
+            <el-header>
+                <home-header></home-header>
+            </el-header>
             <el-main>Main</el-main>
-            <el-footer>Footer</el-footer>
         </el-container>
     </el-container>
 </template>
