@@ -109,6 +109,8 @@ export default {
         padding-top 60px
         overflow auto
         box-sizing border-box
+        transition all .5s
+        transform translate3d(0,0,0)
         .menu-title
             padding 23px
             text-align center
@@ -117,6 +119,8 @@ export default {
             position absolute
             top 0
             left 0
+            width 100%
+            box-sizing border-box
         .menuActive
             .el-icon-caret-bottom
                 transform rotateX(180deg)
