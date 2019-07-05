@@ -1,18 +1,19 @@
 <template>
-    <ul class="menu-container" 
-        @mousemove="changeMove">
+    <ul class="menu-container" @mousemove="changeMove">
        <li class="menu-title"><span>cms-demo</span></li>
-       <li class="menu-item" 
-        :key="index" 
+       <li class="menu-item" :key="index" 
         v-for="(item,index) in menuData" 
         :class="{menuActive:index === menuIndex}">
-           <a href="#" class="levelOneMenu" @click="handleClickMenu(index,$event)">
+           <a href="#" class="levelOneMenu" @click="handlerClickMenu(index,$event)">
                <i class="el-icon-eleme"></i>
-                <span>{{item}}</span>
+                <span>{{item.name}}</span>
                 <i class="el-icon-caret-bottom"></i>
            </a>
            <ul class="submenu-item" v-show="index === menuIndex">
-               <li><a href="#">二级标题</a></li>
+               <li v-for="(child,i) in item.children" :key="i">
+                   <a href="#" @click.prevent="handlerClickSubMenu(child.name)"
+                   :style="{background:subMenuName === child.name?'#009688':''}">{{child.name}}</a>
+                </li>
            </ul>
        </li>
        <li class="leftBorder" :style="borderTop"></li>
@@ -26,17 +27,54 @@ export default {
     name:'homeMenu',
     data(){
         return{
-            menuData:['首页','组件','页面','应用','高级','用户','资料',],
+            menuData:[
+                {name:'首页',children:[
+                    {name:'二级标题1',path:'/'},
+                    {name:'二级标题2',path:'/'},
+                    {name:'二级标题3',path:'/'}
+                ]},
+                {name:'组件',children:[
+                    {name:'二级标题4',path:'/'},
+                    {name:'二级标题5',path:'/'},
+                    {name:'二级标题6',path:'/'}
+                ]},
+                {name:'页面',children:[
+                    {name:'二级标题7',path:'/'},
+                    {name:'二级标题8',path:'/'},
+                    {name:'二级标题9',path:'/'}
+                ]},
+                {name:'应用',children:[
+                    {name:'二级标题10',path:'/'},
+                    {name:'二级标题11',path:'/'},
+                    {name:'二级标题12',path:'/'}
+                ]},
+                {name:'高级',children:[
+                    {name:'二级标题13',path:'/'},
+                    {name:'二级标题14',path:'/'},
+                    {name:'二级标题15',path:'/'}
+                ]},
+                {name:'用户',children:[
+                    {name:'二级标题16',path:'/'},
+                    {name:'二级标题17',path:'/'},
+                    {name:'二级标题18',path:'/'}
+                ]},
+                {name:'资料',children:[
+                    {name:'二级标题19',path:'/'},
+                    {name:'二级标题20',path:'/'},
+                    {name:'二级标题21',path:'/'}
+                ]},
+            ],
             borderTop:{
                 top:0,
                 opacity:0
             },
             menuIndex:-1,
+            subMenuName:''
 
         }
     },
     methods:{
-        handleClickMenu(index,e){
+        handlerClickMenu(index,e){
             if(index === this.menuIndex){
                 this.menuIndex = -1
                 return
@@ -49,13 +87,16 @@ export default {
         changeMove(){
             this.changeLeft(event.target)
         },
+        handlerClickSubMenu(name){
+            this.subMenuName = name
+        },
         changeLeft(el){
             if(Array.from(el.classList).indexOf('levelOneMenu') != -1){
                 this.borderTop.top = getClienRect(el).y + 'px'
                 this.borderTop.opacity = 1
             }
         }
-    }
+    },
 }
 </script>
 
@@ -65,11 +106,17 @@ export default {
         height 100%
         color white
         position relative
+        padding-top 60px
+        overflow auto
+        box-sizing border-box
         .menu-title
             padding 23px
             text-align center
             font-size 18px
             border-bottom 1px solid rgba(0,0,0,0.3)
+            position absolute
+            top 0
+            left 0
         .menuActive
             .el-icon-caret-bottom
                 transform rotateX(180deg)
@@ -92,6 +139,7 @@ export default {
                     padding 15px
                     padding-left 60px
                     display block
+                    transition all .5s
         .leftBorder
             position absolute
             top 0

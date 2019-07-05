@@ -4,10 +4,13 @@
             <home-menu></home-menu>
         </el-aside>
         <el-container>
-            <el-header>
+            <el-header style="padding:0">
                 <home-header></home-header>
             </el-header>
-            <el-main>Main</el-main>
+            <el-main style="padding:0">
+                主体
+                <router-view />
+            </el-main>
         </el-container>
     </el-container>
 </template>

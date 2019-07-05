@@ -1,5 +1,5 @@
 <template>
-    <div style="width:100%;height:100%;background:red"></div>
+    <div style="width:100%;height:100%;background:red">头部</div>
 </template>
 
 <script>
