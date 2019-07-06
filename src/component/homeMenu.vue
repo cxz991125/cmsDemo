@@ -68,10 +68,13 @@ export default {
                 top:0,
                 opacity:0
             },
-            menuIndex:-1,
-            subMenuName:''
+            menuIndex:0,
+            subMenuName:'二级标题1',
 
         }
+    },
+    mounted(){
+        window.haha = this;
     },
     methods:{
         handlerClickMenu(index,e){
@@ -89,6 +92,7 @@ export default {
         },
         handlerClickSubMenu(name){
             this.subMenuName = name
+            this.$parent.layoutMD = false
         },
         changeLeft(el){
             if(Array.from(el.classList).indexOf('levelOneMenu') != -1){
@@ -104,21 +108,21 @@ export default {
     .menu-container
         background-color #20222a
         height 100%
+        width 220px
+        min-width 220px
         color white
-        position relative
-        padding-top 60px
+        position absolute
+        top 0
+        left 0
         overflow auto
         box-sizing border-box
-        transition all .5s
-        transform translate3d(0,0,0)
+        transition all .3s
+        z-index 11
         .menu-title
             padding 23px
             text-align center
             font-size 18px
             border-bottom 1px solid rgba(0,0,0,0.3)
-            position absolute
-            top 0
-            left 0
             width 100%
             box-sizing border-box
         .menuActive
@@ -152,6 +156,9 @@ export default {
             height 60px
             background-color #009688
             transition all .3s
+    @media screen and (max-width: 992px)
+       .menu-container
+            left -220px     
 
 .el-icon-caret-bottom
     position absolute
