@@ -11,7 +11,7 @@
            </a>
            <ul class="submenu-item" v-show="index === menuIndex">
                <li v-for="(child,i) in item.children" :key="i">
-                   <a href="#" @click.prevent="handlerClickSubMenu(child.name)"
+                   <a href="#" @click.prevent="handlerClickSubMenu(child)"
                    :style="{background:subMenuName === child.name?'#009688':''}">{{child.name}}</a>
                 </li>
            </ul>
@@ -29,8 +29,8 @@ export default {
         return{
             menuData:[
                 {name:'首页',children:[
-                    {name:'二级标题1',path:'/'},
-                    {name:'二级标题2',path:'/'},
+                    {name:'首页',routerName:'homePage'},
+                    {name:'新闻',routerName:'news'},
                     {name:'二级标题3',path:'/'}
                 ]},
                 {name:'组件',children:[
@@ -90,9 +90,10 @@ export default {
         changeMove(){
             this.changeLeft(event.target)
         },
-        handlerClickSubMenu(name){
-            this.subMenuName = name
+        handlerClickSubMenu(child){
+            this.subMenuName = child.name
             this.$parent.layoutMD = false
+            this.$router.push({name:child.routerName})
         },
         changeLeft(el){
             if(Array.from(el.classList).indexOf('levelOneMenu') != -1){

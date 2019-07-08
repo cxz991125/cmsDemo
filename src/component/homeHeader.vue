@@ -4,7 +4,7 @@
            <span class="userName">管理员</span>
            <i class="el-icon-caret-bottom"></i>
        </div>
-       <i class="el-icon-s-fold hidden-sm-and-up" @click="changeMD"></i>
+       <i class="el-icon-s-fold hidden-lg-and-up" @click="changeMD"></i>
     </div>
 </template>
 

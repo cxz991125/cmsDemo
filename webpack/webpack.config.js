@@ -72,14 +72,6 @@ module.exports = {
         ]
     },
 
-    devServer:{
-        contentBase:'../dist',
-        compress: true,
-        port: 9090,
-        clientLogLevel:'none',
-        hot:true
-    },
-
     plugins:[
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({

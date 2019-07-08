@@ -3,6 +3,7 @@
         <home-menu></home-menu>
         <div class="main-body">
             <home-header></home-header>
+            <router-view/>
         </div> 
         <div class="layer" @click="closeMD"></div>
     </div>
@@ -59,5 +60,6 @@ export default {
             display:block !important
         .main-body
             left 220px
+            width calc(100% - 220px)
 </style>
 
