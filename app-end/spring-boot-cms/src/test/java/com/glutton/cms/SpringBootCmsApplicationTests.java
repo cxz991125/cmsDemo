@@ -1,6 +1,7 @@
 package com.glutton.cms;
 
 import com.glutton.cms.dao.auto.FieldGenerateManage;
+import com.glutton.cms.dao.category.Category;
 import com.glutton.cms.dao.person.CMSUserAccount;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,6 +18,6 @@ public class SpringBootCmsApplicationTests {
     FieldGenerateManage fieldGenerateManage;
     @Test
     public void contextLoads() throws IOException {
-        fieldGenerateManage.generate(CMSUserAccount.class);
+        fieldGenerateManage.generate(Category.class);
     }
 }

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.glutton.cms.mapping.category.CategoryMapper">
+    <insert id="add" parameterType="Category" useGeneratedKeys="true" keyProperty="cId">
+        insert into cms_category (parent_id,c_name,c_create_time,c_order,c_aliase) values (#{parentId},#{cName},#{cCreateTime},#{cOrder},#{cAliase});
+    </insert>
+    <update id="modify" parameterType="Category">
+        update cms_category
+        <set>
+            <if test="parentId!=null">parent_id=#{parentId},</if>
+            <if test="cName!=null">c_name=#{cName},</if>
+            <if test="cCreateTime!=null">c_create_time=#{cCreateTime},</if>
+            <if test="cOrder!=null">c_order=#{cOrder},</if>
+            <if test="cAliase!=null">c_aliase=#{cAliase}</if>
+        </set>
+        where c_id=#{cId}
+    </update>
+    <delete id="delete" parameterType="java.lang.Integer">
+        delete from cms_category where c_id = #{cId}
+    </delete>
+
+    <select id="select" resultType="com.glutton.cms.dao.category.Category">
+        select * from cms_category
+    </select>
+</mapper>

@@ -61,7 +61,7 @@ public class FieldGenerateManage {
                 if (ws.contains("class") && ws.endsWith("{")) {
                     Connection connection = dataSource.getConnection("root", "042016");
                     PreparedStatement statement = connection.prepareStatement("select COLUMN_NAME as Field, DATA_TYPE as Type\n" +
-                            "from information_schema.columns where table_name ='cms_user_account' and TABLE_SCHEMA='cms';");
+                            "from information_schema.columns where table_name ='cms_category' and TABLE_SCHEMA='cms';");
                     ResultSet resultSet = statement.executeQuery();
                     StringBuffer getAndSet = new StringBuffer();
                     while (resultSet.next()) {
