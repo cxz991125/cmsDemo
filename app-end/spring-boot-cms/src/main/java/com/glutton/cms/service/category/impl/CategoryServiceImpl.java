@@ -6,6 +6,8 @@ import com.glutton.cms.service.category.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @Author: lijun_isf
  */
@@ -18,4 +20,11 @@ public class CategoryServiceImpl implements ICategoryService {
         categoryMapper.add(category);
         return category.getcId();
     }
+
+    @Override
+    public List<Category> categories(int pId) {
+
+        return categoryMapper.select(pId);
+    }
+
 }

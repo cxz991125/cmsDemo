@@ -5,6 +5,7 @@ import com.glutton.cms.core.response.XmlUser;
 import com.glutton.cms.dao.person.CMSUserAccount;
 import com.glutton.cms.service.account.IAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,11 +19,11 @@ public class AccountController {
     @Autowired
     private IAccountService accountService;
 
-    @RequestMapping("/doLogin")
+    @RequestMapping(value = "/doLogin", produces = MediaType.APPLICATION_JSON_VALUE)
     public JSONObject doLogin(@RequestParam String accountName, @RequestParam String accountPassword){
         return accountService.doLogin(accountName, accountPassword);
     }
-    @RequestMapping("/user")
+    @RequestMapping(value = "/user", produces = MediaType.APPLICATION_JSON_VALUE)
     public XmlUser findUser(){
         XmlUser user = new XmlUser();
         user.setAge(10);

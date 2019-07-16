@@ -15,11 +15,16 @@
         </set>
         where c_id=#{cId}
     </update>
-    <delete id="delete" parameterType="java.lang.Integer">
+    <delete id="delete"  parameterType="java.lang.Integer">
         delete from cms_category where c_id = #{cId}
     </delete>
 
-    <select id="select" resultType="com.glutton.cms.dao.category.Category">
+    <select id="select" resultType="com.glutton.cms.dao.category.Category" parameterType="int">
         select * from cms_category
+        <where>
+            <if test="pId!=null">
+                parent_id = #{pId}
+            </if>
+        </where>
     </select>
 </mapper>

@@ -2,6 +2,9 @@ package com.glutton.cms.mapping.category;
 
 import com.glutton.cms.dao.category.Category;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
  * @Author: lijun_isf
@@ -9,8 +12,8 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface CategoryMapper {
 
-    public void add(Category category);
-    public void delete(int cId);
-    public void modify(Category category);
-    public Category select();
+    void add(Category category);
+    void delete(int cId);
+    void modify(Category category);
+    List<Category> select(@Param(value = "pId") int pId);
 }
