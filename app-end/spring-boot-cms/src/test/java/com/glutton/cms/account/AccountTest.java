@@ -1,5 +1,6 @@
 package com.glutton.cms.account;
 
+import com.glutton.cms.controller.account.AccountController;
 import com.glutton.cms.dao.person.CMSUserAccount;
 import com.glutton.cms.service.account.IAccountService;
 import org.junit.Test;
@@ -26,4 +27,6 @@ public class AccountTest {
         int insertId = accountService.addAccount(account);
         System.out.println(">>>>>>>>>>>>>>>>>>>>" + account.getAccountId());
     }
+
+
 }

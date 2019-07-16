@@ -1,6 +1,7 @@
 package com.glutton.cms.controller.account;
 
 import com.alibaba.fastjson.JSONObject;
+import com.glutton.cms.core.response.XmlUser;
 import com.glutton.cms.dao.person.CMSUserAccount;
 import com.glutton.cms.service.account.IAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,14 @@ public class AccountController {
     @RequestMapping("/doLogin")
     public JSONObject doLogin(@RequestParam String accountName, @RequestParam String accountPassword){
         return accountService.doLogin(accountName, accountPassword);
+    }
+    @RequestMapping("/user")
+    public XmlUser findUser(){
+        XmlUser user = new XmlUser();
+        user.setAge(10);
+        user.setSex(true);
+        user.setUserName("glutton");
+        return user;
     }
 
     @RequestMapping("/add")
