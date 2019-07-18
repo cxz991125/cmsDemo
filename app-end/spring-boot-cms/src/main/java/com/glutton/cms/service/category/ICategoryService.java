@@ -9,7 +9,9 @@ import java.util.List;
  */
 public interface ICategoryService {
 
-    public long addCategory(Category category);
+    long addCategory(Category category);
 
-    public List<Category> categories(int pId);
+    List<Category> categories(int pId);
+
+
 }
