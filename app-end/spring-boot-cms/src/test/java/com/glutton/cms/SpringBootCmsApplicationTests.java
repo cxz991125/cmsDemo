@@ -2,7 +2,6 @@ package com.glutton.cms;
 
 import com.glutton.cms.dao.auto.FieldGenerateManage;
 import com.glutton.cms.dao.category.Category;
-import com.glutton.cms.dao.person.CMSUserAccount;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

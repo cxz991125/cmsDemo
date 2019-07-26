@@ -13,7 +13,7 @@
         </javaModelGenerator>
         <sqlMapGenerator targetPackage="${targetXML}"  targetProject="${targetResourcesProject}"/>
         <javaClientGenerator targetPackage="${targetMapper}" targetProject="${targetJavaProject}"  type="XMLMAPPER"/>
-        <table tableName="cms_category" domainObjectName="category.Category" />
+        <table tableName="cms_user_account" domainObjectName="person.CmsUserAccount" />
     </context>
 
 </generatorConfiguration>
