@@ -17,14 +17,14 @@ public class CategoryServiceImpl implements ICategoryService {
     CategoryMapper categoryMapper;
     @Override
     public long addCategory(Category category) {
-        categoryMapper.add(category);
+        categoryMapper.insert(category);
         return category.getcId();
     }
 
     @Override
     public List<Category> categories(int pId) {
 
-        return categoryMapper.select(pId);
+        return categoryMapper.selectParentId(pId);
     }
 
 }

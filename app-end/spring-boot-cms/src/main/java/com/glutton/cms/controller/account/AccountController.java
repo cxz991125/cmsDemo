@@ -2,7 +2,6 @@ package com.glutton.cms.controller.account;
 
 import com.alibaba.fastjson.JSONObject;
 import com.glutton.cms.core.response.XmlUser;
-import com.glutton.cms.dao.person.CMSUserAccount;
 import com.glutton.cms.service.account.IAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;

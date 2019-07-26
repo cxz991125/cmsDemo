@@ -1,7 +1,6 @@
 package com.glutton.cms.account;
 
-import com.glutton.cms.controller.account.AccountController;
-import com.glutton.cms.dao.person.CMSUserAccount;
+import com.glutton.cms.dao.person.CmsUserAccount;
 import com.glutton.cms.service.account.IAccountService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,10 +19,10 @@ public class AccountTest {
     private IAccountService accountService;
     @Test
     public void testAddAccount(){
-        CMSUserAccount account = new CMSUserAccount();
+        CmsUserAccount account = new CmsUserAccount();
         account.setAccountName("admin");
         account.setAccountPassword(DigestUtils.md5DigestAsHex(account.getAccountName().getBytes()));
-        account.setUserId(0);
+        account.setUserId(0l);
         int insertId = accountService.addAccount(account);
         System.out.println(">>>>>>>>>>>>>>>>>>>>" + account.getAccountId());
     }

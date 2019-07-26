@@ -49,9 +49,9 @@ public class CategoryItem implements Iterator<CategoryItem> {
     public void addCategoryItem(CategoryItem parentItem, Category category){
         for(Map.Entry<Integer, CategoryItem> item : subCategories.entrySet()){
             CategoryItem currentItem = item.getValue();
-            if(currentItem.getCategory().getParentId() == category.getParentId()){
+            if(currentItem.getCategory().getParentId().intValue() == category.getParentId().intValue()){
                 subCategories.put(category.getParentId(), new CategoryItem(category));
-            }else if(currentItem.getCategory().getParentId() == category.getcId()){
+            }else if(currentItem.getCategory().getParentId().longValue() == category.getcId()){
                 parentItem.setCategory(category);
             }else if(currentItem.hasNext()){
                 addCategoryItem(currentItem, category);

@@ -1,6 +1,6 @@
 package com.glutton.cms.service.login;
 
-import com.glutton.cms.dao.person.CMSUser;
+import com.glutton.cms.dao.person.CmsUser;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,5 +10,5 @@ import java.util.List;
  */
 @Service
 public interface ILoginService {
-     List<CMSUser> findUserList();
+     List<CmsUser> findUserList();
 }

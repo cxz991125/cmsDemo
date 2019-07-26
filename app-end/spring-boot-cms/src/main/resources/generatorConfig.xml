@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration >
+    <context id="mysqlGenerate" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/cms"
+                        userId="root"
+                        password="042016"/>
+        <javaModelGenerator targetPackage="${targetDao}" targetProject="${targetJavaProject}">
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+        <sqlMapGenerator targetPackage="${targetXML}"  targetProject="${targetResourcesProject}"/>
+        <javaClientGenerator targetPackage="${targetMapper}" targetProject="${targetJavaProject}"  type="XMLMAPPER"/>
+        <table tableName="cms_category" domainObjectName="category.Category" />
+    </context>
+
+</generatorConfiguration>

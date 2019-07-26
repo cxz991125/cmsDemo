@@ -16,6 +16,11 @@
 
     <properties>
         <java.version>1.8</java.version>
+        <targetJavaProject>${basedir}/src/main/java</targetJavaProject>
+        <targetResourcesProject>${basedir}/src/main/resources</targetResourcesProject>
+        <targetDao>com.glutton.cms.dao</targetDao>
+        <targetMapper>com.glutton.cms.mapping</targetMapper>
+        <targetXML>mapper</targetXML>
     </properties>
 
     <dependencies>
@@ -79,6 +84,30 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-maven-plugin</artifactId>
+                <version>1.3.7</version>
+                <configuration>
+                    <overwrite>true</overwrite>
+                    <verbose>true</verbose>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>Generate MyBatis Artifacts</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>mysql</groupId>
+                        <artifactId>mysql-connector-java</artifactId>
+                        <version>5.1.35</version>
+                    </dependency>
+                </dependencies>
             </plugin>
         </plugins>
     </build>
