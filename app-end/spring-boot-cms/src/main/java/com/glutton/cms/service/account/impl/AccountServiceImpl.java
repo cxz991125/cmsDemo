@@ -20,7 +20,7 @@ public class AccountServiceImpl implements IAccountService {
     IResponseMessage rtnMsg;
     @Override
     public int addAccount(CmsUserAccount cmsUserAccount) {
-        int insertId = accountMapper.insert(cmsUserAccount);
+        int insertId = accountMapper.insertSelective(cmsUserAccount);
         return insertId;
     }
 
@@ -29,7 +29,7 @@ public class AccountServiceImpl implements IAccountService {
         CmsUserAccount userAccount = new CmsUserAccount();
         userAccount.setAccountName(accountName);
         userAccount.setAccountPassword(DigestUtils.md5DigestAsHex(accountPassword.getBytes()));
-        CmsUserAccount loginAccount = accountMapper.findAccount(userAccount);
+        CmsUserAccount loginAccount = accountMapper.selectOne(userAccount);
         if(loginAccount == null){
             return rtnMsg.error("用户名或密码错误");
         }else{

@@ -1,7 +1,8 @@
 package com.glutton.cms.runner;
 
+import com.alibaba.fastjson.JSONObject;
 import com.glutton.cms.dao.person.CmsUserAccount;
-import com.glutton.cms.mapping.person.CmsUserAccountMapper;
+import com.glutton.cms.service.account.IAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -13,18 +14,18 @@ import org.springframework.util.DigestUtils;
 @Component
 public class AddAdminAccountRunner implements CommandLineRunner {
     @Autowired
-    CmsUserAccountMapper accountMapper;
+    IAccountService accountService;
     @Override
-    public void run(String... args) throws Exception {
-        CmsUserAccount userAccount  = new CmsUserAccount();
+    public void run(String... args) {
+
         String loginName = "admin";
-        userAccount.setAccountName(loginName);
-        userAccount.setAccountPassword(DigestUtils.md5DigestAsHex(loginName.getBytes()));
-        CmsUserAccount admAccount = accountMapper.findAccount(userAccount);
-        if(admAccount == null){
+        JSONObject admAccount = accountService.doLogin(loginName,loginName);
+        if(!admAccount.getBoolean("success")){
+            CmsUserAccount userAccount  = new CmsUserAccount();
+            userAccount.setAccountName(loginName);
             userAccount.setAccountPassword(DigestUtils.md5DigestAsHex(loginName.getBytes()));
             userAccount.setUserId(0L);
-            accountMapper.insert(userAccount);
+            accountService.addAccount(userAccount);
         }
     }
 }

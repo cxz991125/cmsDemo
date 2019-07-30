@@ -4,6 +4,12 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration >
     <context id="mysqlGenerate" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+
+        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+            <property name="mappers" value="com.glutton.cms.mapping.IBaseTableMapping"/>
+        </plugin>
+
+        <plugin type="org.mybatis.generator.plugins.MapperAnnotationPlugin"></plugin>
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
                         connectionURL="jdbc:mysql://127.0.0.1:3306/cms"
                         userId="root"
@@ -11,9 +17,9 @@
         <javaModelGenerator targetPackage="${targetDao}" targetProject="${targetJavaProject}">
             <property name="trimStrings" value="true" />
         </javaModelGenerator>
-        <sqlMapGenerator targetPackage="${targetXML}"  targetProject="${targetResourcesProject}"/>
+       <sqlMapGenerator targetPackage="${targetXML}"  targetProject="${targetResourcesProject}"/>
         <javaClientGenerator targetPackage="${targetMapper}" targetProject="${targetJavaProject}"  type="XMLMAPPER"/>
-        <table tableName="cms_user_account" domainObjectName="person.CmsUserAccount" />
+        <table tableName="cms_category" domainObjectName="category.Category" />
     </context>
 
 </generatorConfiguration>
