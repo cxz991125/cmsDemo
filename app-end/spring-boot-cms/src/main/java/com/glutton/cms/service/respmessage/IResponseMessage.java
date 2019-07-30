@@ -8,7 +8,9 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public interface IResponseMessage {
-
-    public JSONObject success(String msg, Object object);
-    public JSONObject error(String errMsg);
+    JSONObject successQuery(Object object);
+    JSONObject successUpdate(Object object);
+    JSONObject successDel(Object object);
+    JSONObject success(String msg, Object object);
+    JSONObject error(String errMsg);
 }

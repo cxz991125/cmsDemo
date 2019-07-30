@@ -10,6 +10,21 @@ import org.springframework.stereotype.Service;
 @Service
 public class ResponseMessageImpl implements IResponseMessage {
     @Override
+    public JSONObject successQuery(Object object) {
+        return success("查询成功", object);
+    }
+
+    @Override
+    public JSONObject successUpdate(Object object) {
+        return success("修改成功", object);
+    }
+
+    @Override
+    public JSONObject successDel(Object object) {
+        return success("删除成功", object);
+    }
+
+    @Override
     public JSONObject success(String msg, Object object) {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("success", true);
