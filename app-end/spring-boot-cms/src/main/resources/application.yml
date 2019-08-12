@@ -1,4 +1,6 @@
 spring:
+  aop:
+    proxy-target-class: true
   datasource:
     name: cms
     type: com.alibaba.druid.pool.DruidDataSource
