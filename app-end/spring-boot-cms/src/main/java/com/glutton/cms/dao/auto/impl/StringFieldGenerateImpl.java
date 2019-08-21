@@ -1,5 +1,6 @@
 package com.glutton.cms.dao.auto.impl;
 
+import com.glutton.cms.annotation.ExtendItem;
 import com.glutton.cms.dao.auto.AbstractFieldGenerateExtendService;
 import com.glutton.cms.dao.auto.IFieldGenerateExtendService;
 import org.springframework.stereotype.Service;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
  * @Author: lijun_isf
  */
 @Service
+@ExtendItem
 public class StringFieldGenerateImpl extends AbstractFieldGenerateExtendService implements IFieldGenerateExtendService {
     private static final String COLUMN_TYPE = "varchar";
     @Override

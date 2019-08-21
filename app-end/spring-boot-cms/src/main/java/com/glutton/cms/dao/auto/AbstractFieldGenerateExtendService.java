@@ -5,6 +5,7 @@ import com.glutton.cms.util.HumpUtil;
 /**
  * @Author: lijun_isf
  */
+
 public abstract class AbstractFieldGenerateExtendService implements IFieldGenerateExtendService {
 
     @Override
