@@ -55,8 +55,15 @@ public class CategoryControllerTest {
         mockMvc.perform(MockMvcRequestBuilders.get("/category/list")
                                                 .param("parentId", "0"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.success").value(true))
+                .andExpect(jsonPath("$.code").value(0))
                 .andExpect(jsonPath("$.data").isNotEmpty())
+                .andDo(MockMvcResultHandlers.print())
+                .andReturn();
+    }
+
+    @Test
+    public void testError() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get("/category/error"))
                 .andDo(MockMvcResultHandlers.print())
                 .andReturn();
     }

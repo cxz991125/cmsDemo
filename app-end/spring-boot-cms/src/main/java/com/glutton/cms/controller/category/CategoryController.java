@@ -32,4 +32,10 @@ public class CategoryController {
         List<Category> list =  categoryService.categories(parentId);
         return list;
     }
+
+    @RequestMapping("/error")
+    @ResponseBody
+    public void error(){
+        throw new RuntimeException("系统异常……");
+    }
 }
