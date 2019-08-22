@@ -27,8 +27,9 @@ public class CategoryController {
         return rtnMsg.success("添加成功！", categoryId);
     }
     @RequestMapping("/list")
-    public JSONObject categories(@RequestParam int parentId){
+    @ResponseBody
+    public List<Category> categories(@RequestParam int parentId){
         List<Category> list =  categoryService.categories(parentId);
-        return rtnMsg.success("查询成功！", list);
+        return list;
     }
 }
